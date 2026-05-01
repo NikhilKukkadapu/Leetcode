@@ -1,0 +1,30 @@
+class Solution {
+    public String reverseByType(String s) {
+        String ans="";
+        String le="";
+        String sy="";
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch>='a' && ch<='z'){
+                le=le+""+ch;
+            }
+            else{
+                sy=sy+""+ch;
+            }
+        }
+        int ld=le.length()-1;
+        int sd=sy.length()-1;
+        for(int i=0;i<s.length();i++){
+              char ch=s.charAt(i);
+              if(ch>='a' && ch<='z'){
+                    ans=ans+""+le.charAt(ld);
+                    ld--;
+              }
+              else{
+                    ans=ans+""+sy.charAt(sd);
+                    sd--;
+              }
+        }
+        return ans;
+    }
+}

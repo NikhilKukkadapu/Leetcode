@@ -1,0 +1,58 @@
+class Solution {
+    public boolean isGood(int[] nums) {
+        int max = nums[0];
+
+        for(int num : nums) {
+
+            if(num > max) {
+                max = num;
+            }
+        }
+
+        // STEP 2:
+        // Length must be max + 1
+        // because base[n] = [1,2,3,...,n,n]
+
+        if(nums.length != max + 1) {
+            return false;
+        }
+
+        // STEP 3: Count frequencies using HashMap
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int num : nums) {
+
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // STEP 4:
+        // Check numbers from 1 to max
+
+        for(int i = 1; i <= max; i++) {
+
+            // If number missing
+            if(!map.containsKey(i)) {
+                return false;
+            }
+
+            // Maximum element should appear 2 times
+            if(i == max) {
+
+                if(map.get(i) != 2) {
+                    return false;
+                }
+            }
+
+            // Other numbers should appear 1 time
+            else {
+
+                if(map.get(i) != 1) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}

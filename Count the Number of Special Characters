@@ -1,0 +1,13 @@
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        HashMap<Character , Character > map = new HashMap<>();
+        char[] c = word.toCharArray();
+        for(char a : c){
+            char b = Character.toUpperCase(a);
+            if(word.indexOf(b) != -1 && Character.isLowerCase(a)){
+                map.put(a,b);
+            }
+        }
+        return map.size();
+    }
+}

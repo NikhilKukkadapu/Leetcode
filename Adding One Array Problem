@@ -1,0 +1,31 @@
+// User function Template for Java
+
+class Solution {
+    // Function for adding one to the number represented by the array
+    Vector<Integer> addOne(int[] arr) {
+        // code here
+        int n = arr.length;
+        Vector<Integer> result = new Vector<>();
+
+        // Add 1 to the last digit
+        int carry = 1;
+
+        for (int i = n - 1; i >= 0; i--) {
+            int sum = arr[i] + carry;
+            arr[i] = sum % 10;
+            carry = sum / 10;
+        }
+
+        // If carry remains, add it at the beginning
+        if (carry > 0) {
+            result.add(carry);
+        }
+
+        // Add all digits to the result vector
+        for (int digit : arr) {
+            result.add(digit);
+        }
+
+        return result;
+    }
+}

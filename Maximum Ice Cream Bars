@@ -1,0 +1,32 @@
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        // Find the maximum cost to bound our counting array
+        int maxCost = 0;
+        for (int cost : costs) {
+            maxCost = Math.max(maxCost, cost);
+        }
+        
+        // Count the frequency of each cost
+        int[] freq = new int[maxCost + 1];
+        for (int cost : costs) {
+            freq[cost]++;
+        }
+        
+        int count = 0;
+        // Iterate through costs from 1 to maxCost
+        for (int c = 1; c <= maxCost; c++) {
+            if (freq[c] == 0) continue;
+            
+            // If we don't have enough coins to buy the current cost bar
+            if (coins < c) break;
+            
+            // Calculate how many bars of this cost we can buy
+            int barsToBuy = Math.min(freq[c], coins / c);
+            
+            count += barsToBuy;
+            coins -= (barsToBuy * c);
+        }
+        
+        return count;
+    }
+}

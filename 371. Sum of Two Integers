@@ -1,0 +1,21 @@
+class Solution {
+    public int getSum(int a, int b) {
+       // Using bit operators:
+        while(b != 0){
+            int carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+        }
+        return a;
+
+    // Using Intger Wrapper class:
+
+        //int sum = Integer.sum(a,b);
+        //return sum;
+
+    // Java Built-in method :
+        //int sum = Math.addExact(a,b);
+        //return sum;
+        
+    }
+}

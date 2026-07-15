@@ -1,0 +1,9 @@
+import java.math.BigInteger;
+class Solution {
+    public int gcdOfOddEvenSums(int n) {
+        int a = n * n;
+        int b = n * (n + 1);
+        int gcd = BigInteger.valueOf(a).gcd(BigInteger.valueOf(b)).intValue();
+        return gcd;
+    }
+}

@@ -1,0 +1,13 @@
+class Solution {
+    public int gcdOfOddEvenSums(int n) {
+        int gcd = 0;
+        int SumOdd = n * n;
+        int SumEven = n * (n + 1);
+        for(int i = 1 ; i <= SumOdd && i <= SumEven ; i++){
+            if(SumOdd % i == 0 && SumEven % i == 0){
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
+}

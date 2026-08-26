@@ -1,0 +1,40 @@
+//Brute-force Approach
+
+// class Solution {
+//     public int unequalTriplets(int[] nums) {
+//         int count = 0;
+//         for(int i = 0; i < nums.length; i++){
+//             for(int j = i+1 ; j < nums.length ; j++){
+//                 for(int k = j+1 ; k < nums.length ; k++){
+//                     if(nums[i] != nums[j] && nums[i] != nums[k] && nums[j] != nums[k]) count++;
+//                 }
+//             }
+//         }
+//         return count;
+//     }
+// }
+
+//Using pointers
+
+class Solution {
+    public int unequalTriplets(int[] nums) {
+        int count = 0;
+        int i = 0, j = i + 1, k = j + 1;
+        while (i + 2 < nums.length) {
+            if (nums[i] != nums[j] && nums[i] != nums[k] && nums[j] != nums[k]) {
+                count++;
+            }
+            k++;
+            if (k == nums.length) {
+                j++;
+                k = j + 1;
+            }
+            if (j + 1 == nums.length) {
+                i++;
+                j = i + 1;
+                k = j + 1;
+            }
+        }
+        return count;
+    }
+}

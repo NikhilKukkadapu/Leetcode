@@ -1,0 +1,35 @@
+//   Using Built-in Function 
+// class Solution {
+//     public String toLowerCase(String s) {
+//         return s.toLowerCase();
+//     }
+// }
+            //(OR)
+            //Optimal solution using ASCII
+class Solution {
+    public String toLowerCase(String s) {
+        char[] c = s.toCharArray();
+        for(int i = 0 ; i < c.length ; i++){
+            if(c[i] >= 65 && c[i] <= 90){
+                c[i] = (char) (c[i] + 32);
+            }
+        }
+        return String.valueOf(c);
+    }
+}
+               //(OR)
+
+// class Solution {
+//     public String toLowerCase(String s) {
+//         String res = "";
+//         for(int i = 0 ; i < s.length() ; i++){
+//             if('A' <= s.charAt(i) && 'Z' >= s.charAt(i)){
+//                 res += (char) (s.charAt(i) + 32);
+//             }
+//             else{
+//                 res += s.charAt(i);
+//             }
+//         }
+//         return res;
+//     }
+// }

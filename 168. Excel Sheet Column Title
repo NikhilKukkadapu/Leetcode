@@ -1,0 +1,16 @@
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        String title = "";
+        while(columnNumber > 0){
+            int temp = columnNumber % 26;
+            if(temp == 0){
+                title = (char)'Z' + title;
+            }
+            else{
+                title = (char)('A' + (temp-1)) + title;
+            }
+            columnNumber = (columnNumber - 1)/26;
+        }
+        return title;
+    }
+}
